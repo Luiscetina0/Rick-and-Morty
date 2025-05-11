@@ -1,172 +1,152 @@
-:root {
-	--verde: #80BE4E;
-	--azul: #007AEA;
-}
-
-.contenedor {
-	max-width: 700px;
-	width: 100%;
-	height: 100%;
-	max-height: 90vh;
-	overflow: auto;
-	box-shadow: 0 2px 10px rgba(139,139,139,.25);
-	border-radius: 3px;
+body {
+	margin: 0;
+	background-color: #212121;
+	font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+	  "Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+  
+  .title {
+	color: #e4e4e4;
+	font-size: 40px;
+	font-family: fantasy, sans-serif;
+	margin-bottom: 0;
+  }
+  
+  .img-home {
+	width: 500px;
+	padding: 50px;
+  }
+  
+  .btn-search {
+	background-color: #1ba94c;
+	color: #ffffff;
+	box-shadow: 0 4px 12px rgb(27 169 76 / 50%);
+	font-size: 18.005px;
+	padding-left: 1.528em;
+	padding-right: 1.528em;
+	padding-top: 0;
+	padding-bottom: 0;
+	min-height: 2.778em;
+	border: none;
+	cursor: pointer;
+  }
+  
+  .btn-search:hover {
+	background-color: #ffffff;
+	border: 1px solid #1ba94c;
+	color: #1ba94c;
+  }
+  
+  .characters {
+	padding: 50px;
+  }
+  
+  .characters h1 {
+	margin-top: 0;
+  }
+  
+  .container-characters {
 	display: grid;
-	grid-template-rows: auto auto 1fr;
-}
-
-/* * --- --- ---  HEADER --- --- --- */
-.header {
+	grid-template-columns: auto auto auto;
+	width: 100%;
+	padding-bottom: 50px;
+  }
+  
+  .character-container {
+	display: flex;
+	background: #3c3e44;
+	margin: 20px 10px;
+	border-radius: 10px;
+	align-items: flex-start;
+  }
+  
+  .character-container h3 {
+	margin: 10px 0;
+  }
+  
+  .character-container h6 {
+	margin-top: 0px;
+	margin-bottom: 15px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	height: 60px;
-	padding: 0 20px;
-	background: var(--azul);
-	color: #fff;
-	border-radius: 3px 3px 0px 0px;
-}
-
-.header__titulo {
-	font-weight: 400;
-	font-size: 24px;
-}
-
-.header__boton {
-	background: none;
+	justify-content: flex-start;
 	font-size: 16px;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-	background: #004c92;
-	padding: 5px 10px;
-	border-radius: 3px;
-	display: flex;
-	align-items: center;
-}
-
-.header__icono-boton {
-	font-size: 14px;
-	margin-left: 10px;
-}
-
-/* * --- --- ---  FORMULARIO AGREGAR --- --- --- */
-.formulario-tareas {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: relative;
-	padding: 20px;
-	box-shadow: 0 2px 10px rgba(139,139,139,.25);
-}
-
-.formulario-tareas__input {
-	border: none;
-	padding: 15px;
-	width: 100%;
-	font-size: 20px;
-	font-family: 'Roboto', sans-serif;
-	border-bottom: 2px solid #b8b8b8;
-}
-
-.formulario-tareas__input:focus {
-	outline: none;
-	border-bottom: 2px solid var(--azul);
-}
-
-.formulario-tareas__btn {
-	position: absolute;
-	bottom: 40px;
-	right: 20px;
-	border: none;
-	background: none;
-	cursor: pointer;
-}
-
-.formulario-tareas__icono-btn {
-	font-size: 22px;
-	color: var(--verde);
-}
-
-/* * --- --- ---  LISTA TAREAS --- --- --- */
-
-.lista-tareas {
-	list-style: none;
+  }
+  
+  .character-container .dead,
+  .alive {
+	height: 0.5rem;
+	width: 0.5rem;
+	margin-right: 0.375rem;
+	border-radius: 50%;
+	display: inline-block;
+  }
+  
+  .character-container .dead {
+	background: rgb(214, 61, 46);
+  }
+  
+  .character-container .alive {
+	background: rgb(85, 204, 68);
+  }
+  
+  .character-container div:first-child {
 	height: 100%;
-	overflow: auto;
-}
-
-.lista-tareas__tarea {
-	height: 60px;
-	padding: 0 20px;
-	align-items: center;
-	color: #4B4B4B;
-	font-size: 18px;
-	display: grid;
-	grid-template-columns: auto 1fr auto;
-}
-
-.lista-tareas__texto {
+  }
+  .character-container div:last-child {
 	text-align: left;
+	padding-left: 20px;
+  }
+  
+  .character-container div:last-child p {
+	text-align: left;
+  }
+  
+  .character-container img {
 	width: 100%;
-}
-
-.lista-tareas__tarea:hover .lista-tareas__icono-accion {
-	opacity: 0.5;
-}
-
-.lista-tareas__tarea:nth-child(even) {
-	background: #F3F3F3;
-}
-
-.lista-tareas__contenedor-botones {
-	display: flex;
-}
-
-.lista-tareas__icono {
-	cursor: pointer;
-	font-size: 16px;
-}
-
-.lista-tareas__icono-check {
-	margin-right: 20px;
-	font-size: 26px;
-}
-
-.lista-tareas__icono-accion {
-	margin-left: 20px;
-	opacity: 0;
-	transition: .3s ease all;
-}
-
-.lista-tareas__mensaje {
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10px 0 0 10px;
+  }
+  
+  .character-container p {
+	font-size: 17px;
 	text-align: center;
-	color: #b8b8b8;
-	font-size: 20px;
-	padding: 40px 20px;
-}
-
-/* * --- --- ---  FORMULARIO EDITAR TAREA --- --- --- */
-.formulario-editar-tarea {
-	display: flex;
-}
-
-.formulario-editar-tarea__input {
-	width: 100%;
-	border: none;
-	border-bottom: 2px solid #b8b8b8;
-	background: none;
-	font-size: 20px;
-	font-family: 'Roboto', sans-serif;
-	margin-right: 20px;
-}
-
-.formulario-editar-tarea__btn {
-	border: none;
-	background: var(--verde);
+	margin: 5px 0;
+  }
+  
+  .text-grey {
+	color: #9e9e9e;
+  }
+  
+  .back-home {
+	text-decoration: underline;
 	cursor: pointer;
-	color: #fff;
-	padding: 0 10px;
-	font-family: 'Roboto', sans-serif;
-	border-radius: 3px;
-}
+	width: 100%;
+	font-size: 15px;
+	color: #1ba94c;
+  }
+  
+  @media (max-width: 768px) {
+	.characters {
+	  padding: 0 20px;
+	}
+  
+	.container-characters {
+	  display: table-cell;
+	}
+  
+	.character-container {
+	  width: auto;
+	}
+  
+	.character-container {
+	  margin: 10px 0;
+	}
+  
+	.character-container img {
+	  width: 150px;
+	}
+  }
